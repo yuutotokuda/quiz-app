@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState }from "react";
+import MainMenu from "./components/MainMenu";
+import Quiz from "./components/Quiz";
+import Endscreen from "./components/Endscreen";
+
+import "./App.css";
 
 function App() {
+
+  const [gameState, setGameState] = useState("menu");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <h1>Emma Watson!</h1>
+
+      {gameState === "menu" && <MainMenu />}
+      {gameState === "quiz" && <Quiz />}
+      {gameState === "endScreen" && <Endscreen />}
+    </div> 
   );
 }
 
