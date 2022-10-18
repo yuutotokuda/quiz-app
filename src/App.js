@@ -1,7 +1,9 @@
-import React, {useState }from "react";
+import React, {useState, useContext }from "react";
 import MainMenu from "./components/MainMenu";
 import Quiz from "./components/Quiz";
 import Endscreen from "./components/Endscreen";
+
+import { QuizContext } from "./Helpers/Context";
 
 import "./App.css";
 
@@ -11,11 +13,15 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Emma Watson!</h1>
 
-      {gameState === "menu" && <MainMenu />}
-      {gameState === "quiz" && <Quiz />}
-      {gameState === "endScreen" && <Endscreen />}
+      <h1>Quiz</h1>
+
+      <QuizContext.Provider value={{ gameState, setGameState}}>
+       {gameState === "menu" && <MainMenu />}
+       {gameState === "quiz" && <Quiz />}
+       {gameState === "endScreen" && <Endscreen />}
+      </QuizContext.Provider>
+      
     </div> 
   );
 }
