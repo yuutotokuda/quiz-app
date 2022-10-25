@@ -3,7 +3,7 @@ import { QuizContext } from "../Helpers/Context";
 import {Questions} from "../Helpers/QuestionBank";
 
 function Quiz(){
-    const {score, setScore} = useContext(QuizContext);
+    const {score, setScore, setGameState} = useContext(QuizContext);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [optionChosen, setOptionChosen] = useState("");
 
@@ -11,9 +11,18 @@ function Quiz(){
       if (Questions[currentQuestion].answer === optionChosen){
         setScore(score + 1);
       }
-      alert(score);
+     
       setCurrentQuestion(currentQuestion + 1);
     };
+    const finishQuiz = () => {
+      if (Questions[currentQuestion.answer === optionChosen]){
+        setScore(score + 1);
+      }
+      setGameState("endScreen");
+    };
+   
+    
+
 
     return(
         <div className="Quiz">
@@ -29,7 +38,12 @@ function Quiz(){
                 {Questions[currentQuestion].optionC}{""}
                </button>
             </div>
-            <button onClick={nextQuestion}>Next Question</button>
+            {currentQuestion === Questions.length - 1 ? (
+              <button onClick={finishQuiz}>Finish Quiz</button>
+            ):(
+              <button onClick={nextQuestion}>Next Question</button>
+            ) }
+           
         </div>
     )
 }
