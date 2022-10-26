@@ -4,20 +4,20 @@ export const Questions = [
         optionA: "Yuuto",
         optionB: "Takumi",
         optionC: "Cristiano",
-        answer: "optionA, Yuuto",
+        answer: "A",
     },
     {
         prompt: "What is my current ocupation?",
         optionA: "CEO",
         optionB: "Freelancer",
         optionC: "Unemployed",
-        answer: "optionB, Freelancer",
+        answer: "B",
     },
     {
         prompt: "Where am I from?",
         optionA: "Hokkaido",
         optionB: "Kyoto",
         optionC: "Kanagawa",
-        answer: "optionC, Kanagawa",
+        answer: "C",
     },
 ];

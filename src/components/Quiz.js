@@ -7,15 +7,19 @@ function Quiz(){
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [optionChosen, setOptionChosen] = useState("");
 
+    const chooseOption = (option) => {
+      setOptionChosen(option);
+    }
+
     const nextQuestion = () => {
-      if (Questions[currentQuestion].answer === optionChosen){
+      if (Questions[currentQuestion].answer == optionChosen){
         setScore(score + 1);
       }
      
       setCurrentQuestion(currentQuestion + 1);
     };
     const finishQuiz = () => {
-      if (Questions[currentQuestion.answer === optionChosen]){
+      if (Questions[currentQuestion.answer == optionChosen]){
         setScore(score + 1);
       }
       setGameState("endScreen");
